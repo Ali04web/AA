@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Amaan Alam - Software Engineer</title>
+<title>Amaan's portfolio</title>
 <meta name="description" content="Amaan Alam is a full-stack software engineer building polished web and mobile products with MERN, React Native, and modern backend architecture."/>
-<meta name="theme-color" content="#f5efe5"/>
+<meta name="theme-color" content="#f5efe5" id="metaTheme"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
@@ -39,6 +39,67 @@
   --mono:'IBM Plex Mono',monospace;
   --ease:cubic-bezier(.22,1,.36,1);
 }
+
+/* ── DARK MODE ── */
+[data-theme="dark"]{
+  --bg:#0f0f14;
+  --bg-soft:#16161d;
+  --surface:rgba(30,30,40,.84);
+  --surface-strong:#1e1e28;
+  --surface-tint:rgba(30,30,40,.88);
+  --ink:#e8e6e3;
+  --ink-soft:#b8b4af;
+  --muted:#8a8580;
+  --muted-soft:#6e6a65;
+  --line:rgba(255,255,255,.08);
+  --line-strong:rgba(255,255,255,.14);
+  --accent:#2dd4bf;
+  --accent-deep:#5eead4;
+  --accent-soft:rgba(45,212,191,.12);
+  --accent-wash:rgba(45,212,191,.08);
+  --warm:#f59e0b;
+  --warm-soft:rgba(245,158,11,.15);
+  --shadow:0 24px 60px rgba(0,0,0,.25);
+  --shadow-lg:0 30px 90px rgba(0,0,0,.35);
+}
+[data-theme="dark"] body{
+  background:#0f0f14;
+}
+[data-theme="dark"] .band{
+  background:linear-gradient(180deg,rgba(30,30,40,.5),rgba(30,30,40,.7));
+  border-color:rgba(255,255,255,.04);
+}
+[data-theme="dark"] .site-header{
+  background:rgba(15,15,20,.85);
+  border-color:rgba(255,255,255,.06);
+}
+[data-theme="dark"] .site-header.scrolled{
+  background:rgba(15,15,20,.95);
+  border-color:rgba(255,255,255,.1);
+}
+[data-theme="dark"] .hamburger span{background:var(--ink)}
+[data-theme="dark"] .mobile-menu{
+  background:rgba(22,22,29,.95);
+  border-color:rgba(255,255,255,.06);
+}
+[data-theme="dark"] .nav-cta{background:var(--accent);color:#0f0f14}
+[data-theme="dark"] .btn-primary{background:var(--accent);color:#0f0f14;box-shadow:0 18px 36px rgba(45,212,191,.15)}
+[data-theme="dark"] .btn-secondary{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1);color:var(--ink)}
+[data-theme="dark"] .eyebrow{background:rgba(45,212,191,.08);border-color:rgba(45,212,191,.2)}
+[data-theme="dark"] .proof-item{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.06)}
+[data-theme="dark"] .mini-point{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.06)}
+[data-theme="dark"] .meta-card{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.06)}
+[data-theme="dark"] .tag,.chip,[data-theme="dark"] .chip{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08)}
+[data-theme="dark"] .skill-card{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.06)}
+[data-theme="dark"] .sk-tab{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08)}
+[data-theme="dark"] .sk-tab.active{background:var(--accent);color:#0f0f14;border-color:var(--accent)}
+[data-theme="dark"] .contact-card{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.06)}
+[data-theme="dark"] .edu-year{background:rgba(245,158,11,.12);color:#f59e0b}
+[data-theme="dark"] .page-shell::before{background:rgba(45,212,191,.06)}
+[data-theme="dark"] .page-shell::after{background:rgba(245,158,11,.04)}
+[data-theme="dark"] ::-webkit-scrollbar-track{background:rgba(255,255,255,.02)}
+[data-theme="dark"] ::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12)}
+[data-theme="dark"] ::selection{background:rgba(45,212,191,.25)}
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
@@ -127,27 +188,45 @@ img{max-width:100%;display:block}
 
 .site-header{
   position:fixed;
-  top:16px;
-  left:50%;
-  transform:translateX(-50%);
+  top:0;
+  left:0;
+  right:0;
   z-index:1000;
-  width:min(calc(100% - 1.5rem),1120px);
-  padding:.9rem 1.15rem;
+  width:100%;
+  padding:.75rem 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(255,255,255,.85);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(18px);
+  transition:background .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.site-header.scrolled{
+  background:rgba(255,255,255,.95);
+  box-shadow:0 1px 12px rgba(25,22,19,.06);
+}
+.nav-container{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  background:rgba(255,255,255,.72);
-  border:1px solid rgba(25,22,19,.08);
-  border-radius:999px;
-  box-shadow:0 12px 30px rgba(25,22,19,.08);
-  backdrop-filter:blur(20px);
-  transition:background .25s ease,border-color .25s ease,box-shadow .25s ease,transform .25s ease;
+  width:min(calc(100% - 2.5rem),var(--max));
 }
-.site-header.scrolled{
-  background:rgba(255,255,255,.92);
-  border-color:rgba(25,22,19,.12);
-  box-shadow:0 18px 36px rgba(25,22,19,.10);
+/* Theme Toggle */
+.theme-toggle{
+  width:42px;height:42px;border-radius:50%;
+  border:1px solid var(--line);
+  background:var(--surface);
+  cursor:pointer;display:grid;place-items:center;
+  transition:background .2s,border-color .2s,transform .2s;
+  flex-shrink:0;
 }
+.theme-toggle:hover{transform:scale(1.08);border-color:var(--accent)}
+.theme-toggle svg{width:18px;height:18px;color:var(--ink);transition:color .2s}
+.theme-icon-sun{display:none}
+[data-theme="dark"] .theme-icon-moon{display:none}
+[data-theme="dark"] .theme-icon-sun{display:block}
+.nav-right{display:flex;align-items:center;gap:1rem}
 .brand{
   display:flex;
   align-items:center;
@@ -214,11 +293,11 @@ img{max-width:100%;display:block}
   display:inline-flex;
   align-items:center;
   gap:.5rem;
-  padding:.75rem 1.15rem;
+  padding:.6rem 1.1rem;
   border-radius:999px;
   background:var(--ink);
   color:#fff;
-  font-size:.8rem;
+  font-size:.78rem;
   font-weight:700;
   letter-spacing:-.01em;
   transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
@@ -253,13 +332,15 @@ img{max-width:100%;display:block}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 .mobile-menu{
   position:fixed;
-  top:82px;
-  left:50%;
-  transform:translateX(-50%) translateY(-10px);
-  width:min(calc(100% - 1.5rem),1120px);
-  padding:1rem;
-  border-radius:28px;
-  border:1px solid var(--line);
+  top:56px;
+  left:0;
+  right:0;
+  transform:translateY(-10px);
+  width:100%;
+  padding:1rem 1.5rem;
+  border-radius:0;
+  border-bottom:1px solid var(--line);
+  border-top:none;border-left:none;border-right:none;
   background:rgba(255,255,255,.92);
   box-shadow:var(--shadow-lg);
   backdrop-filter:blur(20px);
@@ -273,7 +354,7 @@ img{max-width:100%;display:block}
   opacity:1;
   visibility:visible;
   pointer-events:auto;
-  transform:translateX(-50%) translateY(0);
+  transform:translateY(0);
 }
 .mobile-menu a{
   display:block;
@@ -330,23 +411,24 @@ img{max-width:100%;display:block}
 }
 .hero-kicker{
   margin-top:1.35rem;
-  font-size:.95rem;
-  font-weight:700;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--muted);
+  font-size:clamp(3.5rem,7vw,6.5rem);
+  font-weight:800;
+  letter-spacing:-.06em;
+  line-height:.95;
+  color:var(--ink);
 }
 .hero-title{
   margin-top:1rem;
-  max-width:12ch;
-  font-size:clamp(3rem,6vw,5.9rem);
-  line-height:.95;
-  letter-spacing:-.06em;
-  font-weight:800;
+  max-width:20ch;
+  font-size:clamp(1.1rem,2vw,1.55rem);
+  line-height:1.5;
+  letter-spacing:-.01em;
+  font-weight:500;
+  color:var(--muted);
 }
 .hero-title .accent{
-  display:block;
   color:var(--accent-deep);
+  font-weight:700;
 }
 .hero-text{
   margin-top:1.5rem;
@@ -986,7 +1068,7 @@ img{max-width:100%;display:block}
 }
 .contact-title{
   margin-top:1rem;
-  max-width:10ch;
+  max-width:14ch;
   font-size:clamp(2.3rem,4.5vw,4.3rem);
   line-height:.96;
   letter-spacing:-.06em;
@@ -999,64 +1081,58 @@ img{max-width:100%;display:block}
   line-height:1.85;
   color:var(--ink-soft);
 }
-.availability{
-  margin-top:1.5rem;
-  display:inline-flex;
-  align-items:center;
-  gap:.6rem;
-  padding:.75rem .95rem;
-  border-radius:18px;
-  background:var(--accent-soft);
-  color:var(--accent-deep);
-  font-size:.92rem;
-  font-weight:700;
+.contact-actions{
+  display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem;
 }
-.availability::before{
-  content:'';
-  width:9px;
-  height:9px;
-  border-radius:50%;
-  background:var(--accent);
+.contact-actions .btn{font-size:.85rem;min-height:46px;padding:0 1.1rem}
+.contact-actions .btn svg{width:16px;height:16px}
+/* Contact Form */
+.contact-form{
+  display:grid;gap:1rem;
 }
-.contact-panel{
-  display:grid;
-  gap:1rem;
+.form-group{
+  display:flex;flex-direction:column;gap:.4rem;
 }
-.contact-card{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:1rem;
-  padding:1.25rem 1.3rem;
-  border-radius:22px;
-  background:rgba(255,255,255,.68);
+.form-label{
+  font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+}
+.form-input,
+.form-select,
+.form-textarea{
+  width:100%;padding:.85rem 1rem;
+  border-radius:var(--radius-sm);
   border:1px solid var(--line);
-  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+  background:var(--surface);
+  color:var(--ink);
+  font-family:var(--sans);font-size:.95rem;
+  transition:border-color .2s,box-shadow .2s;
+  outline:none;
 }
-.contact-card:hover{
-  transform:translateY(-2px);
-  border-color:rgba(15,118,110,.22);
-  box-shadow:0 18px 36px rgba(25,22,19,.10);
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus{
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px var(--accent-wash);
 }
-.contact-kind{
-  display:block;
-  font-family:var(--mono);
-  font-size:.64rem;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color:var(--muted);
+.form-textarea{resize:vertical;min-height:110px}
+.form-select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236d655d' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
+.form-submit{
+  width:100%;padding:.9rem;border:none;border-radius:var(--radius-sm);
+  background:var(--ink);color:#fff;
+  font-family:var(--sans);font-size:.95rem;font-weight:700;
+  cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s;
 }
-.contact-value{
-  display:block;
-  margin-top:.35rem;
-  font-size:1rem;
-  line-height:1.55;
-  font-weight:700;
+.form-submit:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(25,22,19,.15)}
+[data-theme="dark"] .form-submit{background:var(--accent);color:#0f0f14}
+[data-theme="dark"] .form-input,[data-theme="dark"] .form-select,[data-theme="dark"] .form-textarea{
+  background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08);color:var(--ink);
 }
-.contact-arrow{
-  font-size:1.15rem;
-  color:var(--accent-deep);
+.form-success{
+  display:none;padding:1rem;border-radius:var(--radius-sm);
+  background:var(--accent-soft);color:var(--accent-deep);
+  font-weight:600;text-align:center;
 }
+.form-success.show{display:block}
 .footer{
   display:flex;
   align-items:center;
@@ -1087,10 +1163,6 @@ img{max-width:100%;display:block}
 }
 
 @media (max-width:860px){
-  .site-header{
-    width:min(calc(100% - 1rem),1120px);
-    padding:.75rem .9rem;
-  }
   .nav-links,
   .nav-cta{display:none}
   .hamburger{display:flex}
@@ -1134,28 +1206,35 @@ img{max-width:100%;display:block}
 <body>
 <div class="page-shell">
   <header class="site-header" id="navbar">
-    <a class="brand" href="#hero" aria-label="Go to hero section">
-      <div class="brand-mark">A</div>
-      <div class="brand-copy">
-        <span class="brand-name">Amaan Alam</span>
-        <span class="brand-role">Software Engineer</span>
+    <div class="nav-container">
+      <a class="brand" href="#hero" aria-label="Go to hero section">
+        <div class="brand-mark">A</div>
+        <div class="brand-copy">
+          <span class="brand-name">Amaan Alam</span>
+          <span class="brand-role">Software Engineer</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about" data-nav="about">About</a></li>
+        <li><a href="#experience" data-nav="experience">Experience</a></li>
+        <li><a href="#projects" data-nav="projects">Projects</a></li>
+        <li><a href="#skills" data-nav="skills">Skills</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+          <svg class="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          <svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <a class="nav-cta" href="#contact">Contact</a>
+        <button class="hamburger" id="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
-    </a>
-
-    <ul class="nav-links">
-      <li><a href="#about" data-nav="about">About</a></li>
-      <li><a href="#experience" data-nav="experience">Experience</a></li>
-      <li><a href="#projects" data-nav="projects">Projects</a></li>
-      <li><a href="#skills" data-nav="skills">Skills</a></li>
-    </ul>
-
-    <a class="nav-cta" href="#contact">Contact</a>
-
-    <button class="hamburger" id="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false" onclick="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    </div>
   </header>
 
   <div class="mobile-menu" id="mobileMenu">
@@ -1171,11 +1250,10 @@ img{max-width:100%;display:block}
       <div class="container hero-layout">
         <div class="hero-copy">
           <div class="eyebrow rv"><span class="eyebrow-dot"></span>Open to full-time roles and select freelance work</div>
-          <p class="hero-kicker rv" style="transition-delay:.06s">Amaan Alam</p>
-          <h1 class="hero-title rv" style="transition-delay:.12s">
-            I build digital products that feel
-            <span class="accent">clear, fast, and dependable.</span>
-          </h1>
+          <h1 class="hero-kicker rv" style="transition-delay:.06s">Amaan Alam</h1>
+          <p class="hero-title rv" style="transition-delay:.12s">
+            Full-Stack Software Engineer — I build digital products that feel <span class="accent">clear, fast, and dependable.</span>
+          </p>
           <p class="hero-text rv" style="transition-delay:.18s">
             Full-stack Software Engineer with 2+ years of experience shipping web and mobile products across fintech,
             fitness, gaming, and AI-backed workflows using the MERN stack and React Native.
@@ -1667,43 +1745,56 @@ img{max-width:100%;display:block}
         <div class="contact-shell surface-card">
           <div class="contact-copy">
             <div class="section-label rv">Contact</div>
-            <h2 class="contact-title rv" style="transition-delay:.06s">Looking for a developer who can ship with care <span>and speed?</span></h2>
+            <h2 class="contact-title rv" style="transition-delay:.06s">Let's work <span>together.</span></h2>
             <p class="contact-text rv" style="transition-delay:.12s">
-              I am open to full-time roles, freelance work, and collaborative product opportunities. If the work is meaningful
-              and the team values quality, I would be glad to talk.
+              I am open to full-time roles, freelance work, and collaborative product opportunities.
+              Fill out the form or reach out directly — I respond fast.
             </p>
-            <div class="availability rv" style="transition-delay:.18s">Available for new opportunities</div>
+            <div class="contact-actions rv" style="transition-delay:.18s">
+              <a href="https://www.linkedin.com/in/amaan-alam-86b821241" target="_blank" rel="noreferrer" class="btn btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                Connect on LinkedIn
+              </a>
+              <a href="#" class="btn btn-secondary" id="downloadResume">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download Resume
+              </a>
+            </div>
           </div>
 
-          <div class="contact-panel">
-            <a class="contact-card rv" style="transition-delay:.1s" href="mailto:alamamaan334@gmail.com">
-              <div>
-                <span class="contact-kind">Email</span>
-                <span class="contact-value">alamamaan334@gmail.com</span>
+          <div class="contact-form rv" style="transition-delay:.1s">
+            <form id="contactForm" action="https://formspree.io/f/xwpkozll" method="POST">
+              <div class="contact-form" style="padding:0">
+                <div class="form-group">
+                  <label class="form-label" for="cf-name">Your name</label>
+                  <input class="form-input" type="text" id="cf-name" name="name" placeholder="John Doe" required/>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="cf-email">Email address</label>
+                  <input class="form-input" type="email" id="cf-email" name="email" placeholder="john@example.com" required/>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="cf-service">Service you're interested in</label>
+                  <select class="form-select" id="cf-service" name="service" required>
+                    <option value="" disabled selected>Choose a service...</option>
+                    <option value="Full-Stack Web Development">Full-Stack Web Development</option>
+                    <option value="Mobile App Development">Mobile App Development (React Native)</option>
+                    <option value="API & Backend Development">API &amp; Backend Development</option>
+                    <option value="Real-time / Chat Systems">Real-time / Chat Systems</option>
+                    <option value="AI / NLP Integration">AI / NLP Integration</option>
+                    <option value="Freelance / Contract Work">Freelance / Contract Work</option>
+                    <option value="Full-time Opportunity">Full-time Opportunity</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="cf-message">Your message</label>
+                  <textarea class="form-textarea" id="cf-message" name="message" placeholder="Tell me about your project or idea..." required></textarea>
+                </div>
+                <button type="submit" class="form-submit">Send message</button>
+                <div class="form-success" id="formSuccess">Thank you! Your message has been sent successfully.</div>
               </div>
-              <span class="contact-arrow">&rarr;</span>
-            </a>
-            <a class="contact-card rv" style="transition-delay:.16s" href="https://www.linkedin.com/in/amaan-alam-86b821241" target="_blank" rel="noreferrer">
-              <div>
-                <span class="contact-kind">LinkedIn</span>
-                <span class="contact-value">amaan-alam-86b821241</span>
-              </div>
-              <span class="contact-arrow">&rarr;</span>
-            </a>
-            <a class="contact-card rv" style="transition-delay:.22s" href="tel:+917355128595">
-              <div>
-                <span class="contact-kind">Phone</span>
-                <span class="contact-value">+91 7355 128 595</span>
-              </div>
-              <span class="contact-arrow">&rarr;</span>
-            </a>
-            <div class="contact-card rv" style="transition-delay:.28s">
-              <div>
-                <span class="contact-kind">Base</span>
-                <span class="contact-value">Lucknow, India</span>
-              </div>
-              <span class="contact-arrow">Base</span>
-            </div>
+            </form>
           </div>
         </div>
 
@@ -1827,6 +1918,49 @@ const metricObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.metric-card').forEach((card) => {
   metricObserver.observe(card);
+});
+// ── Theme Toggle ──
+const themeToggle = document.getElementById('themeToggle');
+const metaTheme = document.getElementById('metaTheme');
+
+function setTheme(theme){
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+  metaTheme.setAttribute('content', theme === 'dark' ? '#0f0f14' : '#f5efe5');
+}
+
+// Check saved preference or system preference
+const savedTheme = localStorage.getItem('theme');
+if(savedTheme){
+  setTheme(savedTheme);
+} else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+  setTheme('dark');
+}
+
+themeToggle.addEventListener('click', () => {
+  const current = document.documentElement.getAttribute('data-theme');
+  setTheme(current === 'dark' ? 'light' : 'dark');
+});
+
+// ── Contact Form ──
+const contactForm = document.getElementById('contactForm');
+const formSuccess = document.getElementById('formSuccess');
+
+contactForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const formData = new FormData(contactForm);
+  try {
+    const res = await fetch(contactForm.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+    if(res.ok){
+      contactForm.reset();
+      formSuccess.classList.add('show');
+      setTimeout(() => formSuccess.classList.remove('show'), 4000);
+    }
+  } catch(err){}
 });
 </script>
 </body>
