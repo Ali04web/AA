@@ -537,3 +537,799 @@ img{max-width:100%;display:block}
   line-height:1.8;
   color:var(--ink-soft);
 }
+.about-layout{
+  display:grid;
+  grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);
+  gap:1.5rem;
+  margin-top:2.6rem;
+}
+.about-story,
+.focus-card,
+.education-card{
+  padding:1.9rem;
+}
+.about-copy p{
+  font-size:1rem;
+  line-height:1.9;
+  color:var(--ink-soft);
+}
+.about-copy p + p{margin-top:1rem}
+.about-copy strong{color:var(--ink)}
+.principle-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1rem;
+  margin-top:1.8rem;
+}
+.mini-point{
+  padding:1rem;
+  border-radius:18px;
+  background:rgba(255,255,255,.54);
+  border:1px solid var(--line);
+}
+.mini-index{
+  display:block;
+  font-family:var(--mono);
+  font-size:.64rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--accent-deep);
+}
+.mini-title{
+  display:block;
+  margin-top:.6rem;
+  font-size:1rem;
+  font-weight:700;
+}
+.mini-text{
+  display:block;
+  margin-top:.45rem;
+  font-size:.92rem;
+  line-height:1.65;
+  color:var(--muted);
+}
+.about-side{
+  display:grid;
+  gap:1.5rem;
+}
+.focus-list,
+.education-list{
+  display:grid;
+  gap:1rem;
+  margin-top:1.1rem;
+}
+.focus-item,
+.education-item{
+  padding:1rem 0 0;
+  border-top:1px solid var(--line);
+}
+.focus-item:first-child,
+.education-item:first-child{border-top:none;padding-top:0}
+.focus-title,
+.edu-title{
+  font-size:1.03rem;
+  font-weight:700;
+}
+.focus-text,
+.edu-copy{
+  margin-top:.4rem;
+  font-size:.92rem;
+  line-height:1.7;
+  color:var(--muted);
+}
+.edu-year{
+  margin-top:.55rem;
+  display:inline-flex;
+  align-items:center;
+  gap:.45rem;
+  padding:.35rem .7rem;
+  border-radius:999px;
+  background:var(--warm-soft);
+  font-family:var(--mono);
+  font-size:.62rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#825a14;
+}
+
+.experience-list{
+  display:grid;
+  gap:1.25rem;
+  margin-top:2.6rem;
+}
+.experience-card{
+  display:grid;
+  grid-template-columns:220px minmax(0,1fr);
+  gap:1.75rem;
+  padding:1.8rem;
+}
+.exp-side{
+  display:flex;
+  flex-direction:column;
+  gap:.75rem;
+}
+.exp-period{
+  font-family:var(--mono);
+  font-size:.7rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--accent-deep);
+}
+.exp-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:.45rem;
+  width:max-content;
+  padding:.45rem .75rem;
+  border-radius:999px;
+  border:1px solid rgba(15,118,110,.16);
+  background:var(--accent-soft);
+  font-family:var(--mono);
+  font-size:.64rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--accent-deep);
+}
+.exp-badge::before{
+  content:'';
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--accent);
+}
+.exp-location{
+  font-size:.92rem;
+  color:var(--muted);
+}
+.exp-company{
+  font-family:var(--mono);
+  font-size:.72rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.exp-role{
+  margin-top:.55rem;
+  font-size:1.5rem;
+  letter-spacing:-.03em;
+}
+.exp-points{
+  list-style:none;
+  display:grid;
+  gap:.8rem;
+  margin-top:1rem;
+}
+.exp-points li{
+  position:relative;
+  padding-left:1.15rem;
+  font-size:.96rem;
+  line-height:1.75;
+  color:var(--ink-soft);
+}
+.exp-points li::before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:.65rem;
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--warm);
+}
+.tag-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.55rem;
+  margin-top:1.3rem;
+}
+.tag,
+.chip{
+  display:inline-flex;
+  align-items:center;
+  gap:.45rem;
+  padding:.45rem .8rem;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.64);
+  font-size:.66rem;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.tag::before,
+.chip::before{
+  content:'';
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--accent);
+}
+
+.project-grid{
+  display:grid;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  gap:1.25rem;
+  margin-top:2.6rem;
+}
+.project-feature,
+.project-card{
+  padding:1.9rem;
+  position:relative;
+  overflow:hidden;
+}
+.project-feature{
+  grid-column:span 12;
+}
+.project-feature::after,
+.project-card::after{
+  content:'';
+  position:absolute;
+  inset:0 auto auto 0;
+  width:100%;
+  height:4px;
+  background:linear-gradient(90deg,var(--accent),rgba(15,118,110,0));
+}
+.project-number{
+  font-size:.66rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.project-feature-layout{
+  display:grid;
+  grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr);
+  gap:1.75rem;
+  margin-top:1rem;
+}
+.project-type{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+  padding:.45rem .8rem;
+  border-radius:999px;
+  background:var(--accent-soft);
+  font-family:var(--mono);
+  font-size:.64rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--accent-deep);
+}
+.project-type::before{
+  content:'';
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--accent);
+}
+.project-name{
+  margin-top:.95rem;
+  font-size:clamp(1.65rem,3vw,2.6rem);
+  line-height:1.03;
+  letter-spacing:-.04em;
+}
+.project-desc{
+  margin-top:.85rem;
+  font-size:.98rem;
+  line-height:1.8;
+  color:var(--ink-soft);
+}
+.project-side{
+  display:grid;
+  gap:1rem;
+}
+.project-box{
+  padding:1.15rem;
+  border-radius:20px;
+  background:var(--surface-tint);
+  border:1px solid rgba(25,22,19,.07);
+}
+.project-box h4{
+  font-size:.92rem;
+  letter-spacing:.02em;
+}
+.project-box p{
+  margin-top:.45rem;
+  font-size:.9rem;
+  line-height:1.65;
+  color:var(--muted);
+}
+.project-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.75rem 1rem;
+  margin-top:1.15rem;
+}
+.link-inline{
+  display:inline-flex;
+  align-items:center;
+  gap:.45rem;
+  font-size:.68rem;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+  color:var(--accent-deep);
+}
+.link-inline:hover{color:var(--ink)}
+.project-card{
+  grid-column:span 4;
+  display:flex;
+  flex-direction:column;
+  min-height:100%;
+}
+.project-card .project-name{
+  font-size:1.45rem;
+}
+.project-card .project-desc{
+  font-size:.95rem;
+  margin-top:.75rem;
+}
+.project-card .tag-row{
+  margin-top:1rem;
+}
+.project-card .project-links{
+  margin-top:auto;
+  padding-top:1.25rem;
+}
+
+.skills-shell{
+  margin-top:2.6rem;
+  padding:1.3rem;
+}
+.sk-tabs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.75rem;
+}
+.sk-tab{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.6);
+  color:var(--muted);
+  border-radius:999px;
+  padding:.8rem 1.1rem;
+  cursor:pointer;
+  font-family:var(--mono);
+  font-size:.68rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  transition:background .2s ease,border-color .2s ease,color .2s ease,transform .2s ease;
+}
+.sk-tab:hover{transform:translateY(-1px)}
+.sk-tab.active{
+  background:var(--ink);
+  color:#fff;
+  border-color:var(--ink);
+}
+.sk-panel{
+  display:none;
+  margin-top:1.25rem;
+}
+.sk-panel.active{display:block}
+.skill-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1rem;
+}
+.skill-card{
+  padding:1.35rem;
+  border-radius:22px;
+  background:rgba(255,255,255,.58);
+  border:1px solid var(--line);
+}
+.skill-card-label{
+  font-family:var(--mono);
+  font-size:.64rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--accent-deep);
+}
+.skill-card-title{
+  margin-top:.75rem;
+  font-size:1.12rem;
+  line-height:1.3;
+}
+.skill-card-text{
+  margin-top:.45rem;
+  font-size:.91rem;
+  line-height:1.7;
+  color:var(--muted);
+}
+.chip-wrap{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.55rem;
+  margin-top:1rem;
+}
+.metric-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:1rem;
+  margin-top:1.3rem;
+}
+.metric-card{
+  padding:1.45rem 1.3rem;
+}
+.metric-value{
+  display:flex;
+  align-items:flex-end;
+  gap:.2rem;
+  font-size:2.35rem;
+  font-weight:800;
+  letter-spacing:-.06em;
+}
+.metric-value span:last-child{
+  font-size:1rem;
+  margin-bottom:.4rem;
+  color:var(--accent-deep);
+}
+.metric-label{
+  display:block;
+  margin-top:.45rem;
+  font-size:.68rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.metric-note{
+  margin-top:.5rem;
+  font-size:.9rem;
+  line-height:1.65;
+  color:var(--muted);
+}
+
+.contact-shell{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(300px,.92fr);
+  gap:1.5rem;
+  padding:1.6rem;
+}
+.contact-copy{
+  padding:2rem;
+}
+.contact-title{
+  margin-top:1rem;
+  max-width:10ch;
+  font-size:clamp(2.3rem,4.5vw,4.3rem);
+  line-height:.96;
+  letter-spacing:-.06em;
+}
+.contact-title span{color:var(--accent-deep)}
+.contact-text{
+  margin-top:1rem;
+  max-width:54ch;
+  font-size:1rem;
+  line-height:1.85;
+  color:var(--ink-soft);
+}
+.availability{
+  margin-top:1.5rem;
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  padding:.75rem .95rem;
+  border-radius:18px;
+  background:var(--accent-soft);
+  color:var(--accent-deep);
+  font-size:.92rem;
+  font-weight:700;
+}
+.availability::before{
+  content:'';
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:var(--accent);
+}
+.contact-panel{
+  display:grid;
+  gap:1rem;
+}
+.contact-card{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  padding:1.25rem 1.3rem;
+  border-radius:22px;
+  background:rgba(255,255,255,.68);
+  border:1px solid var(--line);
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+.contact-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(15,118,110,.22);
+  box-shadow:0 18px 36px rgba(25,22,19,.10);
+}
+.contact-kind{
+  display:block;
+  font-family:var(--mono);
+  font-size:.64rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.contact-value{
+  display:block;
+  margin-top:.35rem;
+  font-size:1rem;
+  line-height:1.55;
+  font-weight:700;
+}
+.contact-arrow{
+  font-size:1.15rem;
+  color:var(--accent-deep);
+}
+.footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  padding:1.75rem 0 2.25rem;
+}
+.footer-strong{
+  font-weight:800;
+  letter-spacing:-.03em;
+}
+.footer-note{
+  font-size:.68rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+@media (max-width:1080px){
+  .hero-layout,
+  .about-layout,
+  .contact-shell,
+  .project-feature-layout{grid-template-columns:1fr}
+  .hero-title,
+  .section-title,
+  .contact-title{max-width:none}
+  .project-card{grid-column:span 6}
+}
+
+@media (max-width:860px){
+  .site-header{
+    width:min(calc(100% - 1rem),1120px);
+    padding:.75rem .9rem;
+  }
+  .nav-links,
+  .nav-cta{display:none}
+  .hamburger{display:flex}
+  .section-head{grid-template-columns:1fr;gap:.65rem}
+  .hero{padding-top:7.75rem}
+  .hero-proof,
+  .principle-grid,
+  .skill-grid,
+  .metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .experience-card{grid-template-columns:1fr}
+  .exp-side{gap:.45rem}
+}
+
+@media (max-width:640px){
+  .container{width:min(calc(100% - 1.1rem),var(--max))}
+  .section{padding:4.8rem 0}
+  .hero{padding:7.4rem 0 4.5rem}
+  .hero-title{font-size:clamp(2.65rem,13vw,4rem)}
+  .hero-text{font-size:1rem}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .btn{width:100%}
+  .hero-proof,
+  .principle-grid,
+  .skill-grid,
+  .metric-grid,
+  .meta-grid{grid-template-columns:1fr}
+  .project-card{grid-column:span 12}
+  .skills-shell,
+  .contact-shell{padding:1rem}
+  .about-story,
+  .focus-card,
+  .education-card,
+  .contact-copy{padding:1.35rem}
+  .footer{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}
+</style>
+</head>
+<body>
+<div class="page-shell">
+  <header class="site-header" id="navbar">
+    <a class="brand" href="#hero" aria-label="Go to hero section">
+      <div class="brand-mark">A</div>
+      <div class="brand-copy">
+        <span class="brand-name">Amaan Alam</span>
+        <span class="brand-role">Software Engineer</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#about" data-nav="about">About</a></li>
+      <li><a href="#experience" data-nav="experience">Experience</a></li>
+      <li><a href="#projects" data-nav="projects">Projects</a></li>
+      <li><a href="#skills" data-nav="skills">Skills</a></li>
+    </ul>
+
+    <a class="nav-cta" href="#contact">Contact</a>
+
+    <button class="hamburger" id="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" data-nav="about" onclick="closeMenu()">About</a>
+    <a href="#experience" data-nav="experience" onclick="closeMenu()">Experience</a>
+    <a href="#projects" data-nav="projects" onclick="closeMenu()">Projects</a>
+    <a href="#skills" data-nav="skills" onclick="closeMenu()">Skills</a>
+    <a href="#contact" data-nav="contact" onclick="closeMenu()">Contact</a>
+  </div>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <div class="eyebrow rv"><span class="eyebrow-dot"></span>Open to full-time roles and select freelance work</div>
+          <p class="hero-kicker rv" style="transition-delay:.06s">Amaan Alam</p>
+          <h1 class="hero-title rv" style="transition-delay:.12s">
+            I build digital products that feel
+            <span class="accent">clear, fast, and dependable.</span>
+          </h1>
+          <p class="hero-text rv" style="transition-delay:.18s">
+            Full-stack Software Engineer with 2+ years of experience shipping web and mobile products across fintech,
+            fitness, gaming, and AI-backed workflows using the MERN stack and React Native.
+          </p>
+          <div class="hero-actions rv" style="transition-delay:.24s">
+            <a href="#projects" class="btn btn-primary">View selected work</a>
+            <a href="#contact" class="btn btn-secondary">Start a conversation</a>
+          </div>
+          <div class="hero-proof rv" style="transition-delay:.3s">
+            <div class="proof-item">
+              <span class="proof-value">2+</span>
+              <span class="proof-label">years building production software</span>
+            </div>
+            <div class="proof-item">
+              <span class="proof-value">4+</span>
+              <span class="proof-label">live products shipped across sectors</span>
+            </div>
+            <div class="proof-item">
+              <span class="proof-value">20+</span>
+              <span class="proof-label">technologies used across stack and tooling</span>
+            </div>
+            <div class="proof-item">
+              <span class="proof-value">3</span>
+              <span class="proof-label">core strengths: frontend, mobile, backend</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-stack">
+          <article class="hero-panel surface-card rv" style="transition-delay:.16s">
+            <p class="panel-label">Current role</p>
+            <h2 class="panel-title">Software Engineer at Arivani Technologies</h2>
+            <p class="panel-text">
+              Building full-stack products, cross-platform mobile apps, secure authentication flows, and real-time
+              experiences with a strong focus on maintainability and product quality.
+            </p>
+            <div class="meta-grid">
+              <div class="meta-card">
+                <span class="meta-label">Based in</span>
+                <span class="meta-value">Lucknow, India</span>
+              </div>
+              <div class="meta-card">
+                <span class="meta-label">Education</span>
+                <span class="meta-value">B.Tech CSE, 2024</span>
+              </div>
+              <div class="meta-card">
+                <span class="meta-label">Primary stack</span>
+                <span class="meta-value">React, React Native, Node.js</span>
+              </div>
+              <div class="meta-card">
+                <span class="meta-label">Special focus</span>
+                <span class="meta-value">Real-time apps and API design</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="hero-panel surface-card rv" style="transition-delay:.24s">
+            <p class="panel-label">What I bring</p>
+            <ul class="signal-list">
+              <li>Production-ready frontend and mobile interfaces with a clean visual layer and clear UX decisions.</li>
+              <li>Backend systems that prioritize secure auth, reliable data flow, and maintainable API contracts.</li>
+              <li>Fast collaboration with product teams, while still protecting code quality and long-term stability.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label rv">About</div>
+          <div>
+            <h2 class="section-title rv" style="transition-delay:.06s">A developer who thinks in systems, not just screens.</h2>
+            <p class="section-sub rv" style="transition-delay:.12s">
+              I like shipping polished experiences, but the real work for me is underneath: architecture, reliability,
+              performance, and making products easier to evolve over time.
+            </p>
+          </div>
+        </div>
+
+        <div class="about-layout">
+          <article class="about-story surface-card rv" style="transition-delay:.08s">
+            <div class="about-copy">
+              <p>
+                I am a <strong>Full-Stack Software Engineer</strong> with experience building production-grade web and
+                mobile applications. My work sits at the intersection of frontend craft, backend reliability, and practical
+                product thinking.
+              </p>
+              <p>
+                At <strong>Arivani Technologies</strong>, I have contributed to products in fintech, fitness, gaming,
+                and AI-driven experiences. That range has made me comfortable moving between UI implementation, API design,
+                authentication, real-time systems, and collaboration with teams shipping live features.
+              </p>
+              <p>
+                I care about code that scales well, interfaces that feel intentional, and delivery that stays fast without
+                turning messy a month later.
+              </p>
+            </div>
+
+            <div class="principle-grid">
+              <div class="mini-point">
+                <span class="mini-index">01 / Product</span>
+                <span class="mini-title">User-facing quality</span>
+                <span class="mini-text">Interfaces should look confident, read clearly, and remove friction from the workflow.</span>
+              </div>
+              <div class="mini-point">
+                <span class="mini-index">02 / Engineering</span>
+                <span class="mini-title">Clean architecture</span>
+                <span class="mini-text">Solid APIs, readable components, and maintainable structure matter as much as speed.</span>
+              </div>
+              <div class="mini-point">
+                <span class="mini-index">03 / Delivery</span>
+                <span class="mini-title">Practical momentum</span>
+                <span class="mini-text">I like moving quickly, but with enough discipline that the next feature stays easy to ship.</span>
+              </div>
+            </div>
+          </article>
+
+          <div class="about-side">
+            <article class="focus-card surface-card rv" style="transition-delay:.15s">
+              <p class="panel-label">Core focus areas</p>
+              <div class="focus-list">
+                <div class="focus-item">
+                  <h3 class="focus-title">Web and mobile product engineering</h3>
+                  <p class="focus-text">Responsive web apps and React Native experiences built to feel consistent across devices.</p>
+                </div>
+                <div class="focus-item">
+                  <h3 class="focus-title">Secure application architecture</h3>
+                  <p class="focus-text">JWT auth, role-based access, verification flows, and backend patterns that stay manageable.</p>
+                </div>
+                <div class="focus-item">
+                  <h3 class="focus-title">Real-time and AI-backed features</h3>
+                  <p class="focus-text">Socket-based chat, NLP integrations, and interactive workflows that respond instantly.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="education-card surface-card rv" style="transition-delay:.22s">
+              <p class="panel-label">Education</p>
+              <div class="education-list">
+                <div class="education-item">
+                  <h3 class="edu-title">BBDNITM, Lucknow</h3>
+                  <p class="edu-copy">B.Tech - Computer Science &amp; Engineering</p>
+                  <span class="edu-year">2020 - 2024</span>
+                </div>
+                <div class="education-item">
+                  <h3 class="edu-title">Christ Church College, Lucknow</h3>
+                  <p class="edu-copy">ISC (XII): 77% and ICSE (X): 72%</p>
+                  <span class="edu-year">Completed in 2020</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
