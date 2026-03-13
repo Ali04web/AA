@@ -1702,7 +1702,7 @@ img{max-width:100%;display:block}
                 <span class="contact-kind">Base</span>
                 <span class="contact-value">Lucknow, India</span>
               </div>
-              <span class="contact-arrow">.</span>
+              <span class="contact-arrow">Base</span>
             </div>
           </div>
         </div>
@@ -1718,3 +1718,116 @@ img{max-width:100%;display:block}
     </section>
   </main>
 </div>
+<script>
+const navbar = document.getElementById('navbar');
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const navTargets = document.querySelectorAll('[data-nav]');
+
+function setMenuState(isOpen){
+  hamburger.classList.toggle('open', isOpen);
+  mobileMenu.classList.toggle('open', isOpen);
+  hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  document.body.classList.toggle('menu-open', isOpen);
+}
+
+function toggleMenu(){
+  setMenuState(!mobileMenu.classList.contains('open'));
+}
+
+function closeMenu(){
+  setMenuState(false);
+}
+
+window.toggleMenu = toggleMenu;
+window.closeMenu = closeMenu;
+
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 860) {
+    closeMenu();
+  }
+});
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('vis');
+    revealObserver.unobserve(entry.target);
+  });
+}, { threshold: 0.14 });
+
+document.querySelectorAll('.rv').forEach((element) => {
+  revealObserver.observe(element);
+});
+
+const sectionObserver = new IntersectionObserver((entries) => {
+  const visible = entries
+    .filter((entry) => entry.isIntersecting)
+    .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+  if (!visible) return;
+
+  navTargets.forEach((link) => {
+    link.classList.toggle('active', link.dataset.nav === visible.target.id);
+  });
+}, { threshold: 0.45 });
+
+document.querySelectorAll('main section[id]').forEach((section) => {
+  sectionObserver.observe(section);
+});
+
+document.querySelectorAll('.sk-tab').forEach((tab) => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.sk-tab').forEach((button) => {
+      button.classList.remove('active');
+    });
+
+    document.querySelectorAll('.sk-panel').forEach((panel) => {
+      panel.classList.remove('active');
+    });
+
+    tab.classList.add('active');
+    document.getElementById(`sk-${tab.dataset.panel}`).classList.add('active');
+  });
+});
+
+const animatedCounters = new WeakSet();
+
+function animateCounter(element){
+  if (animatedCounters.has(element)) return;
+  animatedCounters.add(element);
+
+  const target = Number(element.dataset.t || 0);
+  const duration = 900;
+  const startTime = performance.now();
+
+  function tick(now){
+    const progress = Math.min((now - startTime) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    element.textContent = String(Math.round(target * eased));
+    if (progress < 1) {
+      requestAnimationFrame(tick);
+    }
+  }
+
+  requestAnimationFrame(tick);
+}
+
+const metricObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    entry.target.querySelectorAll('.cval').forEach(animateCounter);
+    metricObserver.unobserve(entry.target);
+  });
+}, { threshold: 0.35 });
+
+document.querySelectorAll('.metric-card').forEach((card) => {
+  metricObserver.observe(card);
+});
+</script>
+</body>
+</html>
